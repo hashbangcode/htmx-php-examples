@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+
+<p>A very simple comment system.</p>
+
+<ul>
+    <li hx-get="/comment/loadcomments.php"
+       hx-trigger="revealed"
+       hx-swap="outerHTML">
+    </li>
+    <li><button hx-get="/comment/savecomment.php" hx-swap="outerHTML">
+        Click To Add Comment
+    </button></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+
+<p>The hx-swap-oob (or swap Out Of Bounds) attribute is used to tell the response<br>
+from the server to inject itself into the page.</p>
+
+<p>In this example we are sending a simple get request to the backend, but part <br>
+of the response contains a div with the following stricture.</p>
+
+<code>&lt;div id="request-output" hx-swap-oob="true"&gt;
+...
+    &lt;/div&gt;
+</code>
+
+<p>This tells the response to find the div with the id of "request-output" and to<br>
+swap the content with this div.</p>
+
+<p>This allows the response to update different sections of the page without the
+request part knowing all of that logic.</p>
+
+<button hx-get="index.php" hx-swap="outerHTML">Send Request</button>
+
+<div id="request-output">...</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+
+    <style>
+        #request-output p {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+        #request-output p.htmx-added {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+
+<p>Click the button to see the current time as reported by the PHP backend a<br>
+CSS transition is used to animate the transition so it fades in slowly.</p>
+
+<button hx-put="index.php" hx-target="#request-output">Send Request</button>
+
+<div id="request-output"></div>
+
+</body>
+</html>
