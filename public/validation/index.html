@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+    <style>
+        input {
+            margin: 1rem;
+        }
+        .error-message {
+            color:red;
+        }
+        .error input {
+            box-shadow: 0 0 10px #CC0000;
+        }
+        .valid input {
+            box-shadow: 0 0 10px #36cc00;
+        }
+    </style>
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+
+<form hx-post="/validation/complete.php" >
+    <div hx-target="this" hx-swap="outerHTML">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" hx-post="/validation/index.php" autocomplete="email" required>
+    </div>
+    <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" class="form-control" name="name" autocomplete="name" required>
+    </div>
+    <button>Submit</button>
+</form>
+
+</body>
+</html>
