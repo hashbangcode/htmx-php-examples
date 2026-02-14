@@ -12,17 +12,14 @@
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
 
-<p>This will poll an endpoint every 3 seconds. There is a 50% chance that
-the endpoint will respond with a 286 response code, which will stop the
-polling.</p>
+<button hx-get="index.php" hx-select-oob="#div1,#div2,#div3,#div4,#div5,#div6">Send Request</button>
 
-<div id="polling"
-     hx-get="index.php"
-     hx-trigger="every 2s"
-     hx-target="this"
-     hx-swap="innerHTML"><div>
-    <span>Loading...</span>
-</div></div>
+<div id="div1">...</div>
+<div id="div2">...</div>
+<div id="div3">...</div>
+<div id="div4">...</div>
+<div id="div5">...</div>
+<div id="div6">...</div>
 
 </body>
 </html>

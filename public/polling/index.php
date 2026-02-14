@@ -3,7 +3,7 @@
 require '../Htmx.php';
 
 if (Htmx::isHtmxRequest() && Htmx::isGet()) {
-  if (rand(1, 2) === 2) {
+  if (rand(1, 10) > 5) {
     Htmx::cancelPolling();
     echo '<p>Polling stopped.</p>';
   }

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+
+    <style>
+        .tab-wrapper {
+            display: grid;
+            grid-template-columns: 20% 50%;
+            .tabs {
+                li {
+                    list-style: none;
+                    margin-bottom: 1rem;
+                    margin-top: 1rem;
+                }
+                a {
+                    font-size: 1.5rem;
+                    text-decoration: none;
+                    padding: 0.5rem;
+                }
+                a.is-active {
+                    color: white;
+                    background-color: cornflowerblue;
+                }
+            }
+            #detail {
+                padding: 1rem;
+                background-color: papayawhip;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+
+<h2>Tabbed Loading</h2>
+
+<p>This shows an example of tabs without using JavaScript to control the tabs.
+A small amount of JavaScript is added to the page .</p>
+
+<div class="tab-wrapper">
+<div class="tabs">
+<ul id="master-detail-list">
+    <li><a href="#" data-detail-id="1" hx-get="index.php?id=1" hx-target="#detail" hw-swap="innerHTML" hx-trigger="load, click" class="is-active">Person 1</a></li>
+    <li><a href="#" data-detail-id="2" hx-get="index.php?id=2" hx-target="#detail" hw-swap="innerHTML">Person 2</a></li>
+</ul>
+</div>
+    <div id="detail">
+
+    </div>
+</div>
+
+<script>
+
+    (function() {
+        // Use event delegation on the document to handle dynamically loaded content
+        document.body.addEventListener('click', function(e) {
+            var a = e.target.closest('a[data-detail-id]');
+            if (!a) return;
+            var list = a.closest('#master-detail-list');
+            if (!list) return;
+            // Remove is-active from all
+            list.querySelectorAll('a[data-detail-id]').forEach(function(link) {
+                link.classList.remove('is-active');
+            });
+            // Add is-active to clicked
+            a.classList.add('is-active');
+        });
+    })();
+
+</script>
+</body>
+</html>

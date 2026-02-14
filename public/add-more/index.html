@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+
+<p>Click the "Add more" button to add another input box to the list. This will
+    issue a request and send back a response containing a new text
+    element.<br>
+    Included in the response is a button containing a swap-oob attribute, which
+    is used to piggy-back a new version of the button in the response. This
+    updates the counter for the form elements and means that every new element
+    gets a unique name.</p>
+
+<form action="submit.php" method="post">
+<ul class="list">
+    <li><input type="text" name="text1"/></li>
+</ul>
+    <button id="add-more" hx-post="index.php" hx-target=".list" hx-swap="beforeend">Add more</button>
+
+    <input type="submit" value="Submit" />
+</form>
+
+
+
+</body>
+</html>
