@@ -16,7 +16,7 @@
 
 <button hx-get="index.php" hx-swap="none">Send Request</button>
 
-<div id="request-output">...</div>
+<div id="div1">...</div>
 
 <div class="description">
   <p>The hx-swap-oob (or swap Out Of Bounds) attribute is used to tell the response from the server to inject itself into the page.</p>
@@ -25,13 +25,13 @@
 
 <code>
   <pre>
-  &lt;div id="request-output" hx-swap-oob="true"&gt;
+  &lt;div id="div1" hx-swap-oob="true"&gt;
   ...
   &lt;/div&gt;
 </pre>
 </code>
 
-<p>This tells the response to find the div with the id of "request-output" and to swap the content with this div.</p>
+<p>This tells the response to find the div with the id of "div1" and to swap the content with this div.</p>
 
 <p>This allows the response to update different sections of the page without the request part knowing all of that logic.</p>
 

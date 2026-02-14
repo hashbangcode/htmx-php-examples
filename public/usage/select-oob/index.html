@@ -14,13 +14,13 @@
 <h1><a href="/">HTMX PHP Demos</a></h1>
 <h2>Select Out Of Bounds</h2>
 
-<button hx-get="index.php" hx-select-oob="#request-output" hx-swap="outerHTML">Send Request</button>
+<button hx-get="index.php" hx-select-oob="#div1" hx-swap="outerHTML">Send Request</button>
 
-<div id="request-output">...</div>
+<div id="div1">...</div>
 
 <div class="description">
-  <p>The hx-select-oob is used to perform a normal request to a backend and then preform another action. In this case we set the value of hx-select-oob to be "request-output". The hx-swap means that the current button will be swapped out for a value that comes from the response.</p>
-  <p>Then, if the response contains an element with the ID of "request-output" then this is removed from the request output and the element on the page with that ID</p>
+  <p>The hx-select-oob is used to perform a normal request to a backend and then preform another action. In this case we set the value of hx-select-oob to be "div1". The hx-swap means that the current button will be swapped out for a value that comes from the response.</p>
+  <p>Then, if the response contains an element with the ID of "div1" then this is removed from the request output and the element on the page with that ID</p>
 
   <p>This allows us to update one element and then act upon another element on the page.</p>
 </div>
