@@ -8,26 +8,45 @@
     <title>Document</title>
 
     <script src="/js/htmx.min.js"></script>
+<link rel="stylesheet" href="/css/styles.css">
 
     <style>
-        #request-output p {
+        #div1 p {
             opacity: 1;
             transition: opacity 1s ease-in;
         }
-        #request-output p.htmx-added {
+        #div1 p.htmx-added {
             opacity: 0;
         }
     </style>
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
+<h2>CSS Transition</h2>
 
-<p>Click the button to see the current time as reported by the PHP backend a<br>
-CSS transition is used to animate the transition so it fades in slowly.</p>
+<button hx-put="index.php" hx-target="#div1">Send Request</button>
 
-<button hx-put="index.php" hx-target="#request-output">Send Request</button>
+<div id="div1"></div>
 
-<div id="request-output"></div>
+<div class="description">
+  <p>Click the button to see the current time as reported by the PHP backend a CSS transition is used to animate the transition so it fades in slowly.</p>
+  <p>This works as HTMX will add classes to elements during certain events. One of which is "htmx-added", which is adding when an HTML element is added to a page.</p>
+
+  <p>We can set the default opacity of the "p" tag inside our result div to be 1 and set a transition of 1 second when the opacity changes. The "htmx-added" class will set the opacity of the "p" tag to be 0, and because it has a higher specificity than the base rule this hides the element. When the element is added to the page it will have this class and will be removed, which means that the opacity will suddenly be set to 1, and because we have a transition the element will fade into existence.</p>
+<p>Here are the CSS rules used on this page.</p>
+  <pre>
+    <code>
+#div1 p {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+#div1 p.htmx-added {
+  opacity: 0;
+}
+    </code>
+  </pre>
+  <p>Clicking the button again will make the element fade in again.</p>
+</div>
 
 </body>
 </html>

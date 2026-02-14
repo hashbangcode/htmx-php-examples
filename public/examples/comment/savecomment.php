@@ -1,11 +1,11 @@
 <?php
 
-require '../Htmx.php';
+require '../../Htmx.php';
 
 $commentFile = 'comments.csv';
 
 if (Htmx::isHtmxRequest() && Htmx::isGet()) {
-    echo '<form hx-post="/comment/savecomment.php" hx-target="this" hx-swap="outerHTML">
+    echo '<form hx-post="savecomment.php" hx-target="this" hx-swap="outerHTML">
   <div>
     <label>Name</label>
     <input type="text" name="name" value="">
@@ -31,7 +31,7 @@ if (Htmx::isHtmxRequest() && Htmx::isPost()) {
 
         echo '<li>' . $name . ' - ' . $comment . '</li>';
     }
-    echo '<li><button hx-get="/comment/savecomment.php" hx-swap="outerHTML">
+    echo '<li><button hx-get="savecomment.php" hx-swap="outerHTML">
         Click To Add Comment
     </button></li>';
 }

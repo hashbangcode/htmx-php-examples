@@ -15,9 +15,18 @@
     </style>
 
     <script src="/js/htmx.min.js"></script>
+<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
+<h2>Infinite Scroll</h2>
+
+<div class="description">
+  <p>This example shows the hx-trigger revealed event, which is used to fetch the next page of results from the backend.</p>
+  <p>The backend response also contains a revealed trigger so when it is shown on page another set of results is fetched.</p>
+  <p>This will keep counting up forever, but only as long as the user keeps scrolling.</p>
+</div>
+
 <p>1</p>
 <p>2</p>
 <p>3</p>
@@ -26,8 +35,8 @@
 <p>6</p>
 <p>7</p>
 <p>8</p>
-<p hx-get="/infinitescroll/index.php?page=1"
-    hx-trigger="revealed"
+<p hx-get="index.php?page=1"
+    hx-trigger="revealed once"
     hx-swap="afterend">9</p>
 
 </body>

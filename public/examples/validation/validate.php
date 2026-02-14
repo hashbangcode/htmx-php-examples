@@ -14,10 +14,13 @@ if (Htmx::isHtmxRequest() && Htmx::isPost()) {
     echo '<div hx-target="this" hx-swap="outerHTML" class="'.($error === ''?'valid':'error') .'">
   <label for="email">Email Address</label>';
 
-  echo '<input id="email" name="email" hx-post="/validation/index.php" autocomplete="email" required value="'.$email.'">';
+  echo '<input id="email" name="email" hx-post="validate.php" hx-trigger="keyup delay:1s" autocomplete="email" required value="'.$email.'">';
 
   if ($error) {
-    echo '<div class="error-message">' . $error . '</div>';
+    echo '<div class="message message-error">' . $error . '</div>';
+  }
+  else {
+    echo '<div class="message message-success">Email address is valid!</div>';
   }
   echo '</div>';
 }

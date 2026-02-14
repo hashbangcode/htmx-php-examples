@@ -1,6 +1,6 @@
 <?php
 
-require '../Htmx.php';
+require '../../Htmx.php';
 
 if (Htmx::isPost()) {
   echo '<p>You submitted the following values.</p>';
@@ -11,4 +11,4 @@ if (Htmx::isPost()) {
   }
 }
 ?>
-<p><a href="/add-more/index.html">Go back</a></p>
+<p><a href="/examples/add-more/index.html">Go back</a></p>

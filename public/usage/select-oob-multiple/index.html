@@ -8,18 +8,24 @@
     <title>Document</title>
 
     <script src="/js/htmx.min.js"></script>
+<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
+<h2>Select Out Of Bounds With Multiple Destinations</h2>
 
 <button hx-get="index.php" hx-select-oob="#div1,#div2,#div3,#div4,#div5,#div6">Send Request</button>
 
-<div id="div1">...</div>
-<div id="div2">...</div>
-<div id="div3">...</div>
-<div id="div4">...</div>
-<div id="div5">...</div>
-<div id="div6">...</div>
+<div id="div1">..div1..</div>
+<div id="div2">..div2..</div>
+<div id="div3">..div3..</div>
+<div id="div4">..div4..</div>
+<div id="div5">..div5..</div>
+<div id="div6">..div6..</div>
+
+<div class="description">
+  <p>This is an example of using the hx-select-oob attribute to put content into lots of different divs. Click the button and the response will fill in the div elements on the page with results from the backend.</p>
+</div>
 
 </body>
 </html>

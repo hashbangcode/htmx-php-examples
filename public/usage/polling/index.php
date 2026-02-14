@@ -3,9 +3,9 @@
 require '../../Htmx.php';
 
 if (Htmx::isHtmxRequest() && Htmx::isGet()) {
-  if (rand(1, 10) > 5) {
+  $number = rand(1, 6);
+  if ($number === 6) {
     Htmx::cancelPolling();
-    echo '<p>Polling stopped.</p>';
   }
-  echo '<p>Time: ' . date('r') . '.</p>';
+  echo '<p>Rolled a ' . $number . ($number === 6 ? '! Stopping' : '.') . '</p>';
 }

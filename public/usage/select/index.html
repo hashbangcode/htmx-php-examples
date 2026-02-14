@@ -1,28 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 
-    <script src="/js/htmx.min.js"></script>
+  <script src="/js/htmx.min.js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
-
-<p>The hx-select attribute is used to target the ID inside the response being returned from the server.<br>
-The button on this page has the hx-select attribute set to "#response". The response is inspected to find<br>
-the element with the id that matches "response" and because the hx-swap attribute to set to outerHTML the<br>
-entire button will be replaced with this element.</p>
+<h2>Select</h2>
 
 <button hx-get="index.php" hx-select="#response" hx-swap="outerHTML">Send Request</button>
 
-<p>This is useful as it allows us to generate responses that might have more than one HTML element<br>
-but we can extract just the data we need from the response. Everything else will be ignored.</p>
-
-<p>Take a look at the server side code, it contains more than just the button clicked message.</p>
-
+<div class="description">
+  <p>The hx-select attribute is used to target the ID inside the response being returned from the server. The button on
+    this page has the hx-select attribute set to "#response". The response is inspected to find the element with the id
+    that matches "response" and because the hx-swap attribute to set to outerHTML the entire button will be replaced
+    with this element.</p>
+  <p>This is useful as it allows us to generate responses that might have more than one HTML element but we can extract
+    just the data we need from the response. Everything else will be ignored.</p>
+  <p>Take a look at the server side code, it contains more than just the button clicked message.</p>
+</div>
 </body>
 </html>

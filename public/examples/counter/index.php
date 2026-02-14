@@ -1,6 +1,6 @@
 <?php
 
-require '../Htmx.php';
+require '../../Htmx.php';
 
 if (Htmx::isHtmxRequest() && Htmx::isPost()) {
     // The current URL.
@@ -22,6 +22,6 @@ if (Htmx::isHtmxRequest() && Htmx::isPost()) {
         $count++;
         file_put_contents($countFile, $count);
         // Display the new counter result on th page.
-        echo number_format($count);
+        echo '<p>' . number_format($count) . '</p>';
     }
 }

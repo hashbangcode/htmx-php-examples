@@ -8,16 +8,30 @@
     <title>Document</title>
 
     <script src="/js/htmx.min.js"></script>
+<link rel="stylesheet" href="/css/styles.css">
+  <style>
+    #div1 p {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    #div1 p.htmx-added {
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
+<h2>Counter</h2>
 
-<p>An old school page counter. This increments every time you refresh the page.</p>
+<div id="div1" hx-post="index.php" hx-trigger="load delay:500ms">&nbsp;</div>
 
-<p>This shows an example of delaying the callback by a 500ms before loading.</p>
-
-<div hx-post="/counter/index.php"
-hx-trigger="load delay:500ms">0</div>
+<div class="description">
+  <p>An old school page counter.
+  <p>This increments every time you refresh the page and the counter is kept in a simple text file named after a hash of the current page URL. This means that the same element can be put on any page and the counter would increment for each page on the site.</p>
+  <p>This is not suitable for high traffic sites since we are making an uncached callback and writing to a text file.</p>
+  <p>This shows an example of delaying the callback by a 500ms before loading.</p>
+  <p>We make use of HTMX CSS transitions to fade the number in.</p>
+</div>
 
 </body>
 </html>

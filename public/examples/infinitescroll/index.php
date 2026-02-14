@@ -1,6 +1,6 @@
 <?php
 
-require '../Htmx.php';
+require '../../Htmx.php';
 
 if (Htmx::isHtmxRequest() && Htmx::isGet()) {
     $page = $_GET['page'] ?? 0;
@@ -9,8 +9,8 @@ if (Htmx::isHtmxRequest() && Htmx::isGet()) {
     for ($i = $startCount; $i <= $startCount + 9; $i++) {
         if ($i == $startCount + 9) {
             echo <<<HEREDOC
-    <p hx-get="/infinitescroll/index.php?page={$nextPage}"
-        hx-trigger="revealed"
+    <p hx-get="index.php?page={$nextPage}"
+        hx-trigger="revealed once"
         hx-swap="afterend">{$i}</p>
 HEREDOC;
         } else {

@@ -1,6 +1,6 @@
 <?php
 
-require '../Htmx.php';
+require '../../Htmx.php';
 
 $commentFile = 'comments.csv';
 
