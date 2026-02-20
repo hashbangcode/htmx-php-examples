@@ -23,11 +23,15 @@ if (Htmx::isHtmxRequest() && Htmx::isPost()) {
     $comment = $_POST['comment'] ?? FALSE;
     if ($name !== FALSE && $comment !== FALSE) {
         $name = strip_tags($name);
+        $name = str_replace("\n", '', $name);
         $comment = substr(strip_tags($comment), 0, 1000);
 
-        $fp = fopen($commentFile, 'a');
+        $comment = nl2br($comment);
+        $comment = str_replace("\n", '', $comment);
 
-        fputcsv($fp, [$name, $comment], ',', '"', '');
+        $fp = fopen($commentFile, 'a');
+        fputcsv($fp, [$name, $comment]);
+        fclose($fp);
 
         echo '<li>' . $name . ' - ' . $comment . '</li>';
     }
