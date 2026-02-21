@@ -1,61 +1,74 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-  <script src="/js/htmx.min.js"></script>
-  <link rel="stylesheet" href="/css/styles.css">
-  <style>
-    form > div {
-      display: grid;
-      grid-template-columns: 7rem 15rem;
-      align-items: center;
-    }
-    input {
-      margin: 0.5rem;
-    }
-    .message {
-      display: block;
-      grid-column: 2;
-    }
-    .message.message-error {
-      color: red;
-    }
-    .message.message-success {
-      color: green;
-    }
-    .error input {
-      box-shadow: 0 0 10px red;
-    }
-    .valid input {
-      box-shadow: 0 0 10px green;
-    }
-  </style>
+    <script src="/js/htmx.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        form > div {
+            display: grid;
+            grid-template-columns: 7rem 15rem;
+            align-items: center;
+        }
+
+        input {
+            margin: 0.5rem;
+        }
+
+        .message {
+            display: block;
+            grid-column: 2;
+        }
+
+        .message.message-error {
+            color: red;
+        }
+
+        .message.message-success {
+            color: green;
+        }
+
+        .error input {
+            box-shadow: 0 0 10px red;
+        }
+
+        .valid input {
+            box-shadow: 0 0 10px green;
+        }
+    </style>
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
 <h2>Form Validation</h2>
 
 <form hx-post="complete.php">
-  <div hx-target="this" hx-swap="outerHTML">
-    <label for="email">Email Address</label>
-    <input id="email" name="email" hx-post="validate.php" hx-trigger="keyup delay:1s" autocomplete="email" required>
-  </div>
-  <div>
-    <label for="name">Name</label>
-    <input id="name" type="text" class="form-control" name="name" autocomplete="name" required>
-  </div>
-  <button>Submit</button>
+    <div hx-target="this" hx-swap="outerHTML">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" hx-post="validate.php"
+               hx-trigger="keyup delay:1s" autocomplete="email" required>
+    </div>
+    <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" class="form-control" name="name"
+               autocomplete="name" required>
+    </div>
+    <button>Submit</button>
 </form>
 
 <div class="description">
-  <p>A simple form validation that will validate that a user has entered a valid email address into the email field.</p>
-  <p>The hx-trigger "keyup delay:1s" is used to trigger the event only after the user has stopped typing for 1 second. At which point the request is made to validate the email.</p>
-  <p>The response will contain the entire div element surrounding the email input field and an extra div telling the user that the email address is valid or not.</p>
+    <p>A simple form validation that will validate that a user has entered an
+        email address into the email field.</p>
+    <p>The "hx-trigger" attribute has a value of "keyup delay:1s", which is used
+        to trigger the event only after the user has stopped typing for 1
+        second. At which point the request is made to validate the email.</p>
+    <p>The response will contain the entire div element surrounding the email
+        input field, plus an extra div telling the user that the email address
+        is valid or not.</p>
 </div>
 
 </body>

@@ -8,25 +8,35 @@
     <title>Document</title>
 
     <script src="/js/htmx.min.js"></script>
-<link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
 <h2>Simple Comments</h2>
 
 <ul hx-get="loadcomments.php"
-hx-trigger="revealed"
-hx-swap="afterbegin">
-    <li><button hx-get="savecomment.php" hx-swap="outerHTML">
-        Click To Add Comment
-    </button></li>
+    hx-trigger="revealed"
+    hx-swap="afterbegin">
+    <li>
+        <button hx-get="savecomment.php" hx-swap="outerHTML">
+            Click To Add Comment
+        </button>
+    </li>
 </ul>
 
 <div class="description">
-  <p>A very simple comment system in a simple HTML list.</p>
-  <p>When the element is loaded into the viewport we fetch the comments from the loadcomments.php endpoint. This load loads the existing comments from a CSV file and inject them into the list.</p>
-  <p>Clicking the button will trigger a request to the savecomment.php endpoint, we use the hx-swap attribute set to outerHTML to totally replace the button with the comment form.</p>
-  <p>The submit handler of the comment form will send a post request to the same savecomment.php endpoint, which will write the comment to the CSV file and render the new comment and a new button so we can submit another comment. This the replaced the comment form, creating a couple of new list items.</p>
+    <p>A very simple comment system in a simple HTML list.</p>
+    <p>When the element is loaded into the viewport we fetch the comments from
+        the loadcomments.php endpoint. This loads the existing comments from a
+        CSV file and inject them into the list.</p>
+    <p>Clicking the button will trigger a request to the savecomment.php
+        endpoint. We use the "hx-swap" attribute set to "outerHTML" to totally
+        replace the button with the comment form.</p>
+    <p>The submit handler of the comment form will send a post request to the
+        same savecomment.php endpoint, which will write the comment to the CSV
+        file and render the new comment and a new button so we can submit
+        another comment. This replaces the comment form, creating a couple of
+        new list items.</p>
 </div>
 
 </body>

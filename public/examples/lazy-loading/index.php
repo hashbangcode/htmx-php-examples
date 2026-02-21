@@ -19,7 +19,8 @@ if (Htmx::isHtmxRequest() && Htmx::isGet()) {
 }
 
 
-function generateRandomString($length = 10) {
+function generateRandomString($length = 10)
+{
   $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   $charactersLength = strlen($characters);
   $randomString = '';

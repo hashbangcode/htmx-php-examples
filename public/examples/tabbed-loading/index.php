@@ -67,7 +67,7 @@ $planets = [
 ];
 
 if (Htmx::isHtmxRequest() && Htmx::isGet()) {
-  $id = (int) $_GET['id'];
+  $id = (int)$_GET['id'];
 
   if (!isset($planets[$id])) {
     echo '';
@@ -75,7 +75,7 @@ if (Htmx::isHtmxRequest() && Htmx::isGet()) {
   }
 
   $planet = $planets[$id];
-  echo '<h3>' . $planet['name']. '</h3>';
+  echo '<h3>' . $planet['name'] . '</h3>';
   echo '<p><strong>Distance from Sun:</strong> ' . $planet['distance_from_sun'] . '</p>';
   echo '<p><strong>Diameter:</strong> ' . number_format($planet['diameter']) . 'km</p>';
   echo '<p><strong>Moons:</strong> ' . $planet['moons'] . '</p>';

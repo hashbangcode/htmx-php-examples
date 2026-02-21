@@ -8,34 +8,39 @@
     <title>Document</title>
 
     <script src="/js/htmx.min.js"></script>
-<link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
-<h2></h2>
+<h2>Swap Out Of Bounds</h2>
 
 <button hx-get="index.php" hx-swap="none">Send Request</button>
 
 <div id="div1">...</div>
 
 <div class="description">
-  <p>The hx-swap-oob (or swap Out Of Bounds) attribute is used to tell the response from the server to inject itself into the page.</p>
+    <p>The hx-swap-oob (or swap Out Of Bounds) attribute is used to tell the
+        response from the server to inject itself into the page.</p>
 
-<p>In this example we are sending a simple get request to the backend, but part of the response contains a div with the following stricture.</p>
+    <p>In this example we are sending a simple get request to the backend, but
+        part of the response contains a div with the following structure.</p>
 
-<code>
+    <code>
   <pre>
   &lt;div id="div1" hx-swap-oob="true"&gt;
   ...
   &lt;/div&gt;
 </pre>
-</code>
+    </code>
 
-<p>This tells the response to find the div with the id of "div1" and to swap the content with this div.</p>
+    <p>This tells the response to find the div with the id of "div1" and to swap
+        the content with this div.</p>
 
-<p>This allows the response to update different sections of the page without the request part knowing all of that logic.</p>
-
-  <p>We also set the hx-swap attribute to "none" on the button so that it isn't changed by the response. It will be empty since the only thing we send back is the swap-oob element.</p>
+    <p>This allows the response to update different sections of the page without
+        the request part knowing all of that logic.</p>
+    <p>We also set the hx-swap attribute to "none" on the button so that it
+        isn't changed by the response. It will be empty since the only thing we
+        send back is the swap-oob element.</p>
 </div>
 
 </body>

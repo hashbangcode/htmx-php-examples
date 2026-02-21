@@ -8,11 +8,12 @@
     <title>Document</title>
 
     <script src="/js/htmx.min.js"></script>
-<link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <style>
         .htmx-settling table {
             opacity: 0;
         }
+
         table {
             transition: opacity 300ms ease-in;
         }
@@ -25,13 +26,18 @@
 <p></p>
 
 <div hx-get="index.php" hx-trigger="load">
-    <img alt="Result loading..." class="htmx-indicator" width="150" src="loading.svg"/>
+    <img alt="Result loading..." class="htmx-indicator" width="150"
+         src="loading.svg"/>
 </div>
 
 <div class="description">
-  <p>This example uses the hx-trigger event "load", which will trigger a get request to the backend when the page is loaded.</p>
-  <p>A loading animation is placed inside the div tag to show that things are being loaded.</p>
-  <p>The backend response will sleep for a second to simulate the request taking a long time. The response will then replace the contents of the div tag, removing the spinning image and replacing it with content.</p>
+    <p>This example uses the hx-trigger event "load", which will trigger a get
+        request to the backend when the page is loaded.</p>
+    <p>A loading animation is placed inside the div tag to show that things are
+        being loaded.</p>
+    <p>The backend response will sleep for a second to simulate the request
+        taking a long time. The response will then replace the contents of the
+        div tag, removing the spinning image and replacing it with content.</p>
 </div>
 
 </body>

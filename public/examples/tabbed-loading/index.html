@@ -8,34 +8,39 @@
     <title>Document</title>
 
     <script src="/js/htmx.min.js"></script>
-<link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 
     <style>
         .tab-wrapper {
             display: grid;
             grid-template-columns: 20% 50%;
+
             .tabs {
                 li {
                     list-style: none;
                     margin-bottom: 1rem;
                     margin-top: 1rem;
                 }
+
                 a {
                     font-size: 1.5rem;
                     text-decoration: none;
                     padding: 0.5rem;
                 }
+
                 a.is-active {
                     color: white;
                     background-color: cornflowerblue;
                 }
             }
+
             #detail {
                 padding: 1rem;
                 background-color: papayawhip;
+
                 img {
-                  max-width: 50%;
-                  height: auto;
+                    max-width: 50%;
+                    height: auto;
                 }
             }
         }
@@ -48,42 +53,56 @@
 <h2>Tabbed Loading</h2>
 
 
-
 <div class="tab-wrapper">
-<div class="tabs">
-<ul id="master-detail-list">
-    <li><a href="#" data-detail-id="1" hx-get="index.php?id=1" hx-target="#detail" hw-swap="innerHTML" hx-trigger="load, click" class="is-active">Mercury</a></li>
-    <li><a href="#" data-detail-id="2" hx-get="index.php?id=2" hx-target="#detail" hw-swap="innerHTML">Venus</a></li>
-    <li><a href="#" data-detail-id="3" hx-get="index.php?id=3" hx-target="#detail" hw-swap="innerHTML">Earth</a></li>
-    <li><a href="#" data-detail-id="4" hx-get="index.php?id=4" hx-target="#detail" hw-swap="innerHTML">Mars</a></li>
-    <li><a href="#" data-detail-id="5" hx-get="index.php?id=5" hx-target="#detail" hw-swap="innerHTML">Jupiter</a></li>
-    <li><a href="#" data-detail-id="6" hx-get="index.php?id=6" hx-target="#detail" hw-swap="innerHTML">Saturn</a></li>
-    <li><a href="#" data-detail-id="7" hx-get="index.php?id=7" hx-target="#detail" hw-swap="innerHTML">Uranus</a></li>
-    <li><a href="#" data-detail-id="8" hx-get="index.php?id=8" hx-target="#detail" hw-swap="innerHTML">Neptune</a></li>
-</ul>
-</div>
+    <div class="tabs">
+        <ul id="master-detail-list">
+            <li><a href="#" data-detail-id="1" hx-get="index.php?id=1"
+                   hx-target="#detail" hw-swap="innerHTML"
+                   hx-trigger="load, click" class="is-active">Mercury</a></li>
+            <li><a href="#" data-detail-id="2" hx-get="index.php?id=2"
+                   hx-target="#detail" hw-swap="innerHTML">Venus</a></li>
+            <li><a href="#" data-detail-id="3" hx-get="index.php?id=3"
+                   hx-target="#detail" hw-swap="innerHTML">Earth</a></li>
+            <li><a href="#" data-detail-id="4" hx-get="index.php?id=4"
+                   hx-target="#detail" hw-swap="innerHTML">Mars</a></li>
+            <li><a href="#" data-detail-id="5" hx-get="index.php?id=5"
+                   hx-target="#detail" hw-swap="innerHTML">Jupiter</a></li>
+            <li><a href="#" data-detail-id="6" hx-get="index.php?id=6"
+                   hx-target="#detail" hw-swap="innerHTML">Saturn</a></li>
+            <li><a href="#" data-detail-id="7" hx-get="index.php?id=7"
+                   hx-target="#detail" hw-swap="innerHTML">Uranus</a></li>
+            <li><a href="#" data-detail-id="8" hx-get="index.php?id=8"
+                   hx-target="#detail" hw-swap="innerHTML">Neptune</a></li>
+        </ul>
+    </div>
     <div id="detail">
 
     </div>
 </div>
 
 <div class="description">
-  <p>This shows an example of tabs without using JavaScript to control the tabs. When the user clicks on a tab label a request is made to the backend to fetch the data for that item. The response is then placed into the detail div.</p>
-  <p>The first element in the list has a "load" trigger, which means we automatically populate the tab contents from the first element when the page loads.</p>
-  <p>A small amount of JavaScript is added to the page to update which "tab" was clicked on.</p>
+    <p>This shows an example of tabs without using JavaScript to control the
+        tabs. When the user clicks on a tab label a request is made to the
+        backend to fetch the data for that item. The response is then placed
+        into the detail div.</p>
+    <p>The first element in the list has a "load" trigger, which means we
+        automatically populate the tab contents from the first element when the
+        page loads.</p>
+    <p>A small amount of JavaScript is added to the page to update which "tab"
+        was clicked on.</p>
 </div>
 
 <script>
 
-    (function() {
+    (function () {
         // Use event delegation on the document to handle dynamically loaded content
-        document.body.addEventListener('click', function(e) {
+        document.body.addEventListener('click', function (e) {
             var a = e.target.closest('a[data-detail-id]');
             if (!a) return;
             var list = a.closest('#master-detail-list');
             if (!list) return;
             // Remove is-active from all
-            list.querySelectorAll('a[data-detail-id]').forEach(function(link) {
+            list.querySelectorAll('a[data-detail-id]').forEach(function (link) {
                 link.classList.remove('is-active');
             });
             // Add is-active to clicked

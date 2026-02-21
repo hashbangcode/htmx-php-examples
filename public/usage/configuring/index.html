@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-  <script src="/js/htmx.min.js"></script>
-  <link rel="stylesheet" href="/css/styles.css">
-  <meta name="htmx-config" content='{"defaultSwapStyle":"outerHTML"}'>
+    <script src="/js/htmx.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta name="htmx-config" content='{"defaultSwapStyle":"outerHTML"}'>
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
@@ -20,14 +20,17 @@
 <div id="div1"></div>
 
 <div class="description">
-  <p>Here we are setting the default swap behavior to be outerHTML using a meta tag with the name "htmx-config". This will replace the entirety of the button with the result from the server.</p>
-  <p>Configuration can also be set using the following script.</p>
-  <pre>
+    <p>Here we are setting the default swap behavior to be outerHTML using a
+        meta tag with the name "htmx-config". This will replace the entirety of
+        the button with the result from the server.</p>
+    <p>Configuration can also be set using the following script.</p>
+    <pre>
 <code>
 htmx.config.defaultSwapStyle = 'innerHTML';
 </code>
 </pre>
-  <p>Be careful with setting this configuration item as it will change how most of your HTMX elements work.</p>
+    <p>Be careful with setting this configuration item as it will change how
+        most of your HTMX elements work.</p>
 </div>
 
 </body>

@@ -2,6 +2,6 @@
 
 require '../../Htmx.php';
 
-if (Htmx::isHtmxRequest() ) {
+if (Htmx::isHtmxRequest()) {
 
 }

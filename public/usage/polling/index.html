@@ -8,8 +8,8 @@
     <title>Document</title>
 
     <script src="/js/htmx.min.js"></script>
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1><a href="/">HTMX PHP Demos</a></h1>
@@ -18,14 +18,18 @@
 <div id="polling"
      hx-get="index.php"
      hx-trigger="load, every 2s"
-     hx-target="this"><div>
-    <span>Rolled a .</span>
-</div></div>
+     hx-target="this">
+    <div>
+        <span>Rolled a .</span>
+    </div>
+</div>
 
 <div class="description">
-<p>This will poll an endpoint every 2 seconds and roll a die. If the number rolled is 6 then the polling is stopped by issuing a 286 HTTP response header.</p>
-
-<p>This makes use of the hx-trigger attribute with the value "load, every 2s". This means the request is triggered as the page is loaded and then continues every 2 seconds until stopped.</p>
+    <p>This makes use of the "hx-trigger" attribute with the value "load, every
+        2s".</p>
+    <p>This will poll an endpoint every 2 seconds and roll a die. If the number
+        rolled is 6 then the polling is stopped by issuing a 286 HTTP response
+        header.</p>
 </div>
 
 </body>
