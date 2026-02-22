@@ -3,7 +3,6 @@
 require '../../Htmx.php';
 
 if (Htmx::isHtmxRequest() && Htmx::isPost()) {
-
   $email = $_POST['email'];
 
   $error = '';

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+<h2>Boost</h2>
+
+<div hx-boost="true">
+    <ul>
+        <li><a href="page1.php">Page 1</a></li>
+        <li><a href="page2.php">Page 2</a></li>
+    </ul>
+</div>
+
+<div id="preserve" class="description" hx-preserve="true">
+    <p>The links on this page are "boosted" using the "hx-boost" attribute. This
+        means that when the user clicks on the links the ajax response is
+        replaced into the body tag.</p>
+    <p>The boosted links will also change the URL of the page.</p>
+    <p>This description div uses a "hx-preserve" attribute, which allows the
+        boost to preserve this element when replacing the content. Key to this
+        is returning an empty div containing the same ID as this element, which
+        means that it will be preserved on the boosted page. Preserved elements
+        are useful to allow navigation elements to be kept on the page, even if
+        the response doesn't contain them.</p>
+    <p>As only the content of the body is replaced during the boost operation
+        any scripts or styles in the header of the inner pages will not be part
+        of the created page.</p>
+    <p>To disable boosting for certain links you can set the "hx-boost" to be
+        "false".</p>
+</div>
+
+</body>
+</html>

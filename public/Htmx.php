@@ -240,6 +240,19 @@ class Htmx
   }
 
   /**
+   * Issues a HX-Trigger header.
+   *
+   * This is used to trigger events on the front end of the site.
+   *
+   * @param string $trigger
+   *   The name of the trigger.
+   */
+  public static function setTrigger(string $trigger): void
+  {
+    header('HX-Trigger: ' . $trigger);
+  }
+
+  /**
    * Is this a GET request?
    *
    * @return bool

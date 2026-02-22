@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+<h2>Request Headers</h2>
+
+<div name="divname" id="div1" hx-trigger="load dealy:1s" hx-get="index.php" hx-target="#div2"></div>
+
+<div id="div2"></div>
+
+<div class="description">
+    <p>This example shows the different information that is available in the HTMX request.</p>
+    <p>There are two div elements here, with the id's of #div1 and #div2.</p>
+    <p>This reports on the following headers:
+    <ul>
+    <li><code>HX-Target</code> : The id of the target element. Found using the PHP method Htmx::getTarget().</li>
+    <li><code>HX-Trigger</code> : The id of the triggered element. Found using the PHP method Htmx::getTrigger().</li>
+    <li><code>HX-Trigger-Name</code> : The name attribute of the triggered element. Found using the PHP method Htmx::getTriggerName().</li>
+    <li><code>HX-Current-Url</code> : The current URL of the browser (for the HTMX request). The Found using the PHP method Htmx::getCurrentUrl().</li>
+</ul>
+    </p>
+</div>
+
+</body>
+</html>

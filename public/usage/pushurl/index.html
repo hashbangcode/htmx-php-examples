@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="/js/htmx.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1><a href="/">HTMX PHP Demos</a></h1>
+<h2>Push Url</h2>
+
+<button hx-get="/usage/pushurl/index.php" hx-swap="none">
+    Update URL via HX-Push-Url header
+</button>
+
+<button hx-post="/usage/pushurl/index.php" hx-push-url="/some/url"
+        hx-swap="none">
+    Update URL via hx-push-url attribute
+</button>
+
+<p><strong>URL history:</strong></p>
+<div id="history"></div>
+
+<div class="description">
+    <p>The two buttons here change the URL of the page using different
+        mechanisms that come with HTMX. This is either using the "HX-Push-Url"
+        header from the response or the "hx-push-url" attribute to update the
+        URL when the button is clicked.</p>
+    <p>In addition to the change of URL a "hx-swap-oob" attribute is used in the
+        response to update the URL history with the current URL at the top of
+        the list.</p>
+    <p>Note that this just changes the URL of the page so refreshing the page
+        after the URL has changed will result in a 404. In a larger application
+        you would update the URL whilst injecting more content into the page and
+        refreshing the page would load that content.</p>
+</div>
+
+<script>
+</script>
+
+</body>
+</html>
