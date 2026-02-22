@@ -24,8 +24,8 @@ if (Htmx::isHtmxRequest() && Htmx::isPost()) {
   if ($name !== FALSE && $comment !== FALSE) {
     $name = strip_tags($name);
     $name = str_replace("\n", '', $name);
-    $comment = substr(strip_tags($comment), 0, 1000);
 
+    $comment = substr(strip_tags($comment), 0, 1000);
     $comment = nl2br($comment);
     $comment = str_replace("\n", '', $comment);
 
